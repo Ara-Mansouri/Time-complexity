@@ -31,7 +31,7 @@ if graph_type == "bubble sort":
     plt.show()
 elif graph_type == "hanoi tower":
     # Generate input sizes for Hanoi tower
-    hanoi_input_sizes = [i for i in range(1, 20)]
+    hanoi_input_sizes = [i for i in range(10,20)]
 
 
     # Calculate the execution time of Hanoi towers for each input size
@@ -52,14 +52,14 @@ elif graph_type == "hanoi tower":
         hanoi_execution_times.append(end_time - start_time)
 
     # Draw the graph
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12,12))
     plt.plot(hanoi_input_sizes, hanoi_execution_times)
     plt.xlabel("Input Size")
     plt.ylabel("Execution Time (seconds)")
     plt.title("Time Complexity of Hanoi Tower")
     plt.show()
 elif graph_type == "linear search":
-    linear_input_sizes = [100, 2000,30000,3000000,5000000]
+    linear_input_sizes = [100,101,102,103,104 ,2000,30000,3000000,5000000,6000000]
     linear_input_lists = [random.choices(range(1, 10000), k=size) for size in linear_input_sizes]
     linear_search_time=[]
     for input_list in linear_input_lists:
@@ -77,6 +77,7 @@ elif graph_type == "linear search":
     plt.ylabel("Execution Time (seconds)")
     plt.title("Time Complexity of linear search")
     plt.show()
+
 
 
 
