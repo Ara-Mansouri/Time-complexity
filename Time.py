@@ -79,21 +79,22 @@ elif graph_type == "linear search":
     plt.title("Time Complexity of linear search")
     plt.show()
 elif graph_type == "binary search":
-    binary_input_sizes = [100,200,300,400,500,600,700,800,900,1000]
+    binary_input_sizes = [10, 100,1000,5000,10000,15000,30000,40000,50000,60000,70000,80000,90000,100000]
     binary_input_lists = [random.choices(range(1, 1000), k=size) for size in binary_input_sizes]
     binary_search_execution_time = []
+
+
     def binary_search(arr, low, high, x):
         while low <= high:
             mid = (low + high) // 2
-        # Check if x is present at mid
-            if arr[mid] == x:
-                return mid
-        # If x is greater, ignore left half
-            elif arr[mid] < x:
+            # If x is greater, ignore left half
+            if arr[mid] < x:
                 low = mid + 1
-        # If x is smaller, ignore right half
-            else:
+            # If x is smaller, ignore right half
+            elif arr[mid] > x:
                 high = mid - 1
+            else:
+                return mid
         # If we reach here, then the element
         # was not present
         return -1
@@ -101,15 +102,17 @@ elif graph_type == "binary search":
 
     for input_list in binary_input_lists:
         input_list.sort()
-        #print(input_list)
+        # print(input_list)
         start_time = time.time()
-        result = binary_search(input_list, 0, len(input_list) - 1, 1001)
+        time.sleep(0.01)
+        result = binary_search(input_list, 0, len(input_list) - 1, 100000000000000000)
         if result != -1:
             print("Element is present at index", result)
         else:
             print("Element is not present in array")
         end_time = time.time()
         binary_search_execution_time.append(end_time - start_time)
+        print(binary_search_execution_time)
     # Draw the graph
     plt.figure(figsize=(10, 6))
     plt.plot(binary_input_sizes, binary_search_execution_time)
