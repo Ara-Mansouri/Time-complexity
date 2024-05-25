@@ -65,7 +65,7 @@ elif graph_type == "linear search":
     for input_list in linear_input_lists:
         start_time = time.time()
         for i in range(len(input_list)):
-            if input_list[i]==1000000000000000:
+            if input_list[i]==10000000000:
                 print("element is present at index",i)
                 break
         end_time = time.time()
@@ -81,4 +81,4 @@ elif graph_type == "linear search":
 
 
 else:
-    print("Invalid input. Please enter either 'bubble sort', 'hanoi towers', or 'both'.")
+    print("Invalid input. Please enter either 'bubble sort', 'hanoi towers', or linear search.")
